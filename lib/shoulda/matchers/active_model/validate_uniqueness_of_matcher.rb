@@ -203,7 +203,7 @@ module Shoulda # :nodoc:
         end
 
         def correct_type_for_column(column)
-          if column.type == :string || column.type == :binary
+          if [:string, :binary, :text].include? column.type
             '0'
           elsif column.type == :datetime
             DateTime.now
